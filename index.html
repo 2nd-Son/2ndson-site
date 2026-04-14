@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2ND SON</title>
+  <meta name="description" content="2ND SON – songwriting, production, mixing, mastering, and selected works." />
+  <style>
+    :root {
+      --bg: #000000;
+      --panel: #0d0d0d;
+      --panel2: #141414;
+      --text: #f1eee8;
+      --muted: #a69f94;
+      --line: #1f1a17;
+      --accent: #ede9df;
+      --shadowtone: #524e49;
+      --max: 1260px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top center, rgba(255,255,255,.04), transparent 28%),
+        var(--bg);
+    }
+    a { color: inherit; text-decoration: none; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,.82);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: 12px;
+    }
+    .nav a { color: var(--muted); }
+    .nav a:hover { color: var(--text); }
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 52px 24px 18px;
+      text-align: center;
+    }
+    .logo {
+      width: min(100%, 980px);
+      display: block;
+      margin: 0 auto 20px;
+      filter: drop-shadow(0 0 18px rgba(237,233,223,.08));
+    }
+    .tag {
+      margin: 0 auto 26px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .28em;
+      font-size: 11px;
+    }
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+    .social-icon {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-size: 17px;
+      transition: color .2s ease, border-color .2s ease, transform .2s ease, background .2s ease;
+    }
+    .social-icon:hover {
+      color: var(--text);
+      border-color: rgba(237,233,223,.26);
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.03);
+    }
+
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 34px 24px 86px;
+    }
+    .section-head {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+      margin-bottom: 28px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(20px, 3vw, 28px);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr);
+      gap: 26px;
+      margin-bottom: 36px;
+      align-items: stretch;
+    }
+    .feature-art {
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      background: #080808;
+      box-shadow: 0 24px 55px rgba(0,0,0,.35);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .feature-art:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 30px 70px rgba(0,0,0,.46);
+      border-color: #36312c;
+    }
+    .feature-art img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+    .feature-copy {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px;
+      background: linear-gradient(180deg, #0f0f0f, #0a0a0a);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 20px 45px rgba(0,0,0,.28);
+    }
+    .eyebrow {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .20em;
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.04;
+      margin: 0 0 12px;
+      letter-spacing: .02em;
+      color: var(--accent);
+    }
+    .feature-context {
+      color: var(--muted);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin-bottom: 22px;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 14px 18px;
+      border-radius: 999px;
+      border: 1px solid #3a342f;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: 12px;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      background: linear-gradient(180deg, #151311, #0e0d0b);
+    }
+    .cta:hover {
+      transform: translateY(-1px);
+      border-color: #5a524b;
+      background: linear-gradient(180deg, #1a1714, #11100e);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .card {
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0,0,0,.28);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #35302c;
+      box-shadow: 0 22px 50px rgba(0,0,0,.42);
+    }
+    .art-wrap {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: #050505;
+    }
+    .art-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .35s ease;
+    }
+    .card:hover img {
+      transform: scale(1.03);
+    }
+    .meta {
+      padding: 14px 14px 16px;
+    }
+    .title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 7px;
+      color: var(--accent);
+    }
+    .artist {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      background: linear-gradient(180deg, #101010, #090909);
+    }
+    .label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      margin-bottom: 10px;
+    }
+    .value {
+      font-size: 18px;
+      font-weight: 700;
+      word-break: break-word;
+      color: var(--accent);
+    }
+    .footer {
+      text-align: center;
+      color: #7f776e;
+      border-top: 1px solid var(--line);
+      padding: 26px 20px 42px;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1080px) {
+      .feature {
+        grid-template-columns: 1fr;
+      }
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-inner { gap: 18px; flex-wrap: wrap; }
+    }
+    @media (max-width: 460px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 34px; }
+      .nav-inner { font-size: 11px; letter-spacing: .14em; }
+      .feature-copy { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#works">Listen</a>
+      <a href="https://2ndson.bandcamp.com/album/grey-matter" target="_blank" rel="noopener noreferrer">Merch</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <img class="logo" src="2ndson-logo.png" alt="2ND SON logo">
+    <p class="tag">Songwriting · Production · Mixing · Mastering</p>
+    <div class="social-row">
+      
+    <a class="social-icon" href="https://www.youtube.com/@_2ndson_/videos" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
+      <span>▶</span>
+    </a>
+    
+
+    <a class="social-icon" href="https://www.instagram.com/_2ndson_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+      <span>◎</span>
+    </a>
+    
+
+    <a class="social-icon" href="https://www.facebook.com/2ndson" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+      <span>f</span>
+    </a>
+    
+
+    <a class="social-icon" href="https://x.com/_2ndSon_" target="_blank" rel="noopener noreferrer" aria-label="X" title="X">
+      <span>𝕏</span>
+    </a>
+    
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="works">
+      <div class="section-head">
+        <h2>Selected Works</h2>
+      </div>
+
+      <div class="feature">
+        <a class="feature-art" href="https://fanlink.tv/Best_Life" target="_blank" rel="noopener noreferrer">
+          <img src="assets/best-life.jpg" alt="Best Life cover art">
+        </a>
+        <div class="feature-copy">
+          <div class="eyebrow">Featured Release</div>
+          <h3 class="feature-title">Best Life</h3>
+          <div class="feature-context">2ND SON</div>
+          <a class="cta" href="https://fanlink.tv/Best_Life" target="_blank" rel="noopener noreferrer">Stream</a>
+        </div>
+      </div>
+
+      <div class="grid">
+        
+    <a class="card" href="https://fanlink.tv/d5Pw" target="_blank" rel="noopener noreferrer">
+      <div class="art-wrap">
+        <img src="assets/selah-sue-bedroom-ep.jpg" alt="In A Heartbeat cover art" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">In A Heartbeat</div>
+        <div class="artist">Selah Sue · Bedroom EP</div>
+      </div>
+    </a>
+    
+
+    <a class="card" href="https://fanlink.tv/Righteous_Mind" target="_blank" rel="noopener noreferrer">
+      <div class="art-wrap">
+        <img src="assets/selah-sue-persona-deluxe.jpg" alt="Righteous Mind cover art" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">Righteous Mind</div>
+        <div class="artist">Selah Sue · Persona Deluxe</div>
+      </div>
+    </a>
+    
+
+    <a class="card" href="https://fanlink.tv/greymatter" target="_blank" rel="noopener noreferrer">
+      <div class="art-wrap">
+        <img src="assets/grey-matter.jpg" alt="Grey Matter cover art" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">Grey Matter</div>
+        <div class="artist">2ND SON</div>
+      </div>
+    </a>
+    
+
+    <a class="card" href="https://fanlink.tv/d5PJ" target="_blank" rel="noopener noreferrer">
+      <div class="art-wrap">
+        <img src="assets/soul-run.png" alt="Soul Run cover art" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">Soul Run</div>
+        <div class="artist">Tanika Charles</div>
+      </div>
+    </a>
+    
+
+    <a class="card" href="https://2ndson.fanlink.tv/CrossMyMind" target="_blank" rel="noopener noreferrer">
+      <div class="art-wrap">
+        <img src="assets/cross-my-mind.png" alt="Cross My Mind cover art" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">Cross My Mind</div>
+        <div class="artist">Allie</div>
+      </div>
+    </a>
+    
+
+    <a class="card" href="https://2ndson.fanlink.tv/NoForever" target="_blank" rel="noopener noreferrer">
+      <div class="art-wrap">
+        <img src="assets/allie-nightshade.jpg" alt="No Forever cover art" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">No Forever</div>
+        <div class="artist">Allie</div>
+      </div>
+    </a>
+    
+
+    <a class="card" href="https://fanlink.tv/WakeMe" target="_blank" rel="noopener noreferrer">
+      <div class="art-wrap">
+        <img src="assets/wake-me.jpg" alt="Wake Me cover art" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">Wake Me</div>
+        <div class="artist">Gillian Mapp</div>
+      </div>
+    </a>
+    
+
+    <a class="card" href="https://fanlink.tv/OliverJewellery" target="_blank" rel="noopener noreferrer">
+      <div class="art-wrap">
+        <img src="assets/oliver-jewellery.jpg" alt="Oliver Jewellery cover art" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">Oliver Jewellery</div>
+        <div class="artist">Matthew Progress</div>
+      </div>
+    </a>
+    
+
+    <a class="card" href="https://fanlink.tv/Right_here" target="_blank" rel="noopener noreferrer">
+      <div class="art-wrap">
+        <img src="assets/right-here.png" alt="Right Here cover art" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">Right Here</div>
+        <div class="artist">Gillian Mapp</div>
+      </div>
+    </a>
+    
+
+    <a class="card" href="https://2ndson.fanlink.tv/PrivateIsland" target="_blank" rel="noopener noreferrer">
+      <div class="art-wrap">
+        <img src="assets/private-island.jpg" alt="Private Island cover art" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">Private Island</div>
+        <div class="artist">Allie</div>
+      </div>
+    </a>
+    
+
+    <a class="card" href="https://2ndson.fanlink.tv/FirstLight" target="_blank" rel="noopener noreferrer">
+      <div class="art-wrap">
+        <img src="assets/first-light.jpg" alt="First Light cover art" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">First Light</div>
+        <div class="artist">2ND SON</div>
+      </div>
+    </a>
+    
+
+    <a class="card" href="https://2ndson.fanlink.tv/CosmicBlue" target="_blank" rel="noopener noreferrer">
+      <div class="art-wrap">
+        <img src="assets/cosmic-blue.jpg" alt="Cosmic Blue cover art" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">Cosmic Blue</div>
+        <div class="artist">2ND SON</div>
+      </div>
+    </a>
+    
+
+    <a class="card" href="https://2ndson.fanlink.tv/ShortStories" target="_blank" rel="noopener noreferrer">
+      <div class="art-wrap">
+        <img src="assets/short-stories.jpg" alt="Short Stories cover art" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">Short Stories</div>
+        <div class="artist">2ND SON</div>
+      </div>
+    </a>
+    
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-head">
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="label">Email</div>
+          <a class="value" href="mailto:2ndson.audio@gmail.com">2ndson.audio@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <div class="label">Vinyl / Merch</div>
+          <a class="value" href="https://2ndson.bandcamp.com/album/grey-matter" target="_blank" rel="noopener noreferrer">Grey Matter LP on Bandcamp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© 2ND SON</footer>
+</body>
+</html>
