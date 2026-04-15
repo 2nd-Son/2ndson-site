@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="favicon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2ND SON</title>
@@ -94,6 +95,21 @@
       transform: translateY(-1px);
       background: rgba(255,255,255,.03);
     }
+.social-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+  opacity: 0.78;
+  transition: opacity .2s ease, transform .2s ease, filter .2s ease;
+  filter: saturate(.82) brightness(.92);
+}
+
+.social-icon:hover img {
+  opacity: 1;
+  transform: scale(1.04);
+  filter: saturate(.95) brightness(.98);
+}
 
     .section {
       max-width: var(--max);
@@ -308,27 +324,26 @@
     <img class="logo" src="2ndson-logo.png" alt="2ND SON logo">
     <p class="tag">Songwriting · Production · Mixing · Mastering</p>
     <div class="social-row">
-      
-    <a class="social-icon" href="https://www.youtube.com/@_2ndson_/videos" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
-      <span>▶</span>
-    </a>
-    
+  <a class="social-icon" href="https://www.youtube.com/@_2ndson_/videos" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
+    <img src="assets/youtube.png" alt="YouTube">
+  </a>
 
-    <a class="social-icon" href="https://www.instagram.com/_2ndson_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
-      <span>◎</span>
-    </a>
-    
+  <a class="social-icon" href="https://www.instagram.com/_2ndson_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+    <img src="assets/instagram.png" alt="Instagram">
+  </a>
 
-    <a class="social-icon" href="https://www.facebook.com/2ndson" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
-      <span>f</span>
-    </a>
-    
+  <a class="social-icon" href="https://www.facebook.com/2ndson" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+    <img src="assets/facebook.png" alt="Facebook">
+  </a>
 
-    <a class="social-icon" href="https://x.com/_2ndSon_" target="_blank" rel="noopener noreferrer" aria-label="X" title="X">
-      <span>𝕏</span>
-    </a>
-    
-    </div>
+  <a class="social-icon" href="https://x.com/_2ndSon_" target="_blank" rel="noopener noreferrer" aria-label="X" title="X">
+    <img src="assets/x.png" alt="X">
+  </a>
+
+  <a class="social-icon" href="https://www.tiktok.com/@_2ndson_" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+    <img src="assets/tiktok.png" alt="TikTok">
+  </a>
+</div>
   </header>
 
   <main>
