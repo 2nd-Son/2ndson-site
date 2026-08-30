@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="favicon2.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grey Matter Vinyl — 2ND SON</title>
+  <meta name="description" content="Grey Matter — limited private pressing 12-inch gatefold vinyl LP by C.J. Robertson & 2nd Son." />
+  <style>
+    :root {
+      --bg:#000000;
+      --panel:#0d0d0d;
+      --panel2:#141414;
+      --text:#f1eee8;
+      --muted:#a69f94;
+      --line:#1f1a17;
+      --accent:#ede9df;
+      --max:1260px;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:radial-gradient(circle at top center,rgba(255,255,255,.04),transparent 28%),var(--bg);
+    }
+    a { color:inherit; text-decoration:none; }
+    .nav {
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(10px);
+      background:rgba(0,0,0,.82);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner {
+      max-width:var(--max);
+      margin:0 auto;
+      padding:18px 24px;
+      display:flex;
+      justify-content:center;
+      gap:28px;
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:12px;
+    }
+    .nav a { color:var(--muted); }
+    .nav a:hover { color:var(--text); }
+    .hero {
+      max-width:var(--max);
+      margin:0 auto;
+      padding:52px 24px 18px;
+      text-align:center;
+    }
+    .logo {
+      width:min(100%,980px);
+      display:block;
+      margin:0 auto 20px;
+      filter:drop-shadow(0 0 18px rgba(237,233,223,.08));
+    }
+    .tag {
+      margin:0 auto 26px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.28em;
+      font-size:11px;
+    }
+    .social-row {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:14px;
+      margin-bottom:8px;
+    }
+    .social-icon {
+      width:34px;
+      height:34px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      border:1px solid transparent;
+      color:var(--muted);
+      font-size:17px;
+      transition:color .2s ease,border-color .2s ease,transform .2s ease,background .2s ease;
+    }
+    .social-icon:hover {
+      color:var(--text);
+      border-color:rgba(237,233,223,.26);
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.03);
+    }
+    .social-icon img {
+      width:20px;
+      height:20px;
+      object-fit:contain;
+      display:block;
+      opacity:.78;
+      transition:opacity .2s ease,transform .2s ease,filter .2s ease;
+      filter:saturate(.82) brightness(.92);
+    }
+    .social-icon:hover img {
+      opacity:1;
+      transform:scale(1.04);
+      filter:saturate(.95) brightness(.98);
+    }
+    .icon-boost { transform:scale(1.75); }
+
+    .section {
+      max-width:var(--max);
+      margin:0 auto;
+      padding:34px 24px 86px;
+    }
+    .section-head {
+      border-bottom:1px solid var(--line);
+      padding-bottom:14px;
+      margin-bottom:28px;
+    }
+    .section-head h1 {
+      margin:0;
+      font-size:clamp(20px,3vw,28px);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+    .product {
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);
+      gap:26px;
+      align-items:stretch;
+      margin-bottom:26px;
+    }
+    .hero-img,.info {
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 24px 55px rgba(0,0,0,.35);
+    }
+    .hero-img img {
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      aspect-ratio:1/1;
+    }
+    .info {
+      padding:clamp(28px,4vw,46px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:radial-gradient(circle at 50% 16%,rgba(255,255,255,.035),transparent 32%),linear-gradient(180deg,#0f0f0f,#090909);
+    }
+    .eyebrow {
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.20em;
+      font-size:11px;
+      margin-bottom:14px;
+    }
+    .product-title {
+      margin:0 0 10px;
+      color:var(--accent);
+      font-size:clamp(38px,5.5vw,64px);
+      line-height:.95;
+      letter-spacing:.01em;
+    }
+    .format {
+      color:var(--muted);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.17em;
+      line-height:1.65;
+      margin-bottom:28px;
+    }
+    .price {
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:.03em;
+      color:var(--accent);
+      margin-bottom:18px;
+    }
+    .copy {
+      color:#b8b1a7;
+      font-size:14px;
+      line-height:1.7;
+      max-width:35em;
+      margin:0 0 26px;
+    }
+    .buy {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:fit-content;
+      padding:14px 20px;
+      border-radius:999px;
+      border:1px solid #3a342f;
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font:inherit;
+      font-size:12px;
+      background:linear-gradient(180deg,#151311,#0e0d0b);
+      transition:.2s ease;
+      cursor:pointer;
+    }
+    .buy:hover {
+      transform:translateY(-1px);
+      border-color:#5a524b;
+      background:linear-gradient(180deg,#1a1714,#11100e);
+    }
+    .buy:focus-visible,.ship-option:focus-visible {
+      outline:2px solid rgba(237,233,223,.75);
+      outline-offset:3px;
+    }
+    .ship-chooser {
+      margin-top:14px;
+      width:min(100%,390px);
+      border:1px solid #2b2723;
+      border-radius:16px;
+      overflow:hidden;
+      background:#0c0b0a;
+    }
+    .ship-title {
+      padding:14px 16px 11px;
+      color:#81796f;
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      border-bottom:1px solid #201d1a;
+    }
+    .ship-option {
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      padding:15px 16px;
+      border-bottom:1px solid #201d1a;
+      font-size:12px;
+      letter-spacing:.04em;
+      transition:.18s ease;
+    }
+    .ship-option:last-child { border-bottom:0; }
+    .ship-option span:first-child {
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+    .ship-option span:last-child {
+      color:#8c847b;
+      text-align:right;
+    }
+    .ship-option:hover { background:#14110f; }
+    .shipping-note {
+      margin-top:18px;
+      color:#81796f;
+      font-size:10px;
+      line-height:1.6;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      max-width:42em;
+    }
+    .gallery {
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:22px;
+      margin-top:22px;
+    }
+    .gallery-card {
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      box-shadow:0 16px 40px rgba(0,0,0,.28);
+    }
+    .gallery-card img {
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+    }
+    .gallery-card.wide img { aspect-ratio:1.55/1; }
+    .gallery-card.artwork {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px;
+    }
+    .gallery-card.artwork img {
+      width:100%;
+      height:auto;
+      max-height:100%;
+      aspect-ratio:auto;
+      object-fit:contain;
+    }
+    .shipping-block {
+      margin-top:28px;
+      border-top:1px solid var(--line);
+      padding-top:24px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+    .small-card {
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:22px;
+      background:linear-gradient(180deg,#101010,#090909);
+    }
+    .small-label {
+      font-size:10px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      margin-bottom:9px;
+    }
+    .small-value {
+      font-size:14px;
+      color:var(--accent);
+      line-height:1.6;
+    }
+    .footer {
+      text-align:center;
+      color:#7f776e;
+      border-top:1px solid var(--line);
+      padding:26px 20px 42px;
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    @media(max-width:980px) {
+      .product { grid-template-columns:1fr; }
+      .gallery { grid-template-columns:1fr; }
+    }
+    @media(max-width:760px) {
+      .nav-inner { gap:18px; flex-wrap:wrap; }
+    }
+    @media(max-width:640px) {
+      .hero { padding-top:34px; }
+      .section { padding-left:18px; padding-right:18px; }
+      .info { padding:24px; }
+      .shipping-block { grid-template-columns:1fr; }
+    }
+    @media(max-width:460px) {
+      .nav-inner { font-size:11px; letter-spacing:.14em; }
+      .ship-option { gap:10px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html#works">Listen</a>
+      <a href="merch.html" aria-current="page">Merch</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <a href="index.html" aria-label="2ND SON home">
+      <img class="logo" src="2ndson-logo.png" alt="2ND SON logo">
+    </a>
+    <p class="tag">Songwriting · Production</p>
+    <div class="social-row">
+      <a class="social-icon" href="https://www.youtube.com/@_2ndson_/videos" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
+        <img src="assets/youtube.png" class="icon-boost" alt="YouTube">
+      </a>
+      <a class="social-icon" href="https://www.instagram.com/_2ndson_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+        <img src="assets/instagram.png" alt="Instagram">
+      </a>
+      <a class="social-icon" href="https://www.facebook.com/2ndson" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+        <img src="assets/facebook.png" alt="Facebook">
+      </a>
+      <a class="social-icon" href="https://x.com/_2ndSon_" target="_blank" rel="noopener noreferrer" aria-label="X" title="X">
+        <img src="assets/x.png" alt="X">
+      </a>
+      <a class="social-icon" href="https://www.tiktok.com/@_2ndson_" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+        <img src="assets/tiktok.png" class="icon-boost" alt="TikTok">
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="merch">
+      <div class="section-head"><h1>Vinyl / Merch</h1></div>
+
+      <div class="product">
+        <div class="hero-img">
+          <img src="assets/grey-matter-vinyl-01.jpg" alt="Grey Matter vinyl LP">
+        </div>
+        <div class="info">
+          <div class="eyebrow">Limited private pressing</div>
+          <h2 class="product-title">Grey Matter</h2>
+          <div class="format">12&quot; Gatefold Vinyl LP · C.J. Robertson &amp; 2nd Son</div>
+          <div class="price">CA$40</div>
+          <p class="copy">Black vinyl in a gatefold jacket with metallic silver artwork. Includes the digital album.</p>
+          <button class="buy" type="button" id="buyToggle" aria-expanded="false" aria-controls="shipChooser">Buy</button>
+
+          <div class="ship-chooser" id="shipChooser" hidden>
+            <div class="ship-title">Ship to</div>
+            <a class="ship-option" href="https://buy.stripe.com/cNibJ03ak54i5fT0LF0x201" target="_blank" rel="noopener noreferrer">
+              <span>Toronto</span><span>Local Delivery · Free</span>
+            </a>
+            <a class="ship-option" href="https://buy.stripe.com/aFa8wO7qA1S637Lamf0x200" target="_blank" rel="noopener noreferrer">
+              <span>Canada</span><span>Shipping · CA$20</span>
+            </a>
+            <a class="ship-option" href="https://buy.stripe.com/dRm6oG3ak68mcIl2TN0x202" target="_blank" rel="noopener noreferrer">
+              <span>USA</span><span>Shipping · CA$25</span>
+            </a>
+            <a class="ship-option" href="https://buy.stripe.com/dRm3cueT2dAOdMp7a30x203" target="_blank" rel="noopener noreferrer">
+              <span>Europe / UK</span><span>Shipping · CA$30</span>
+            </a>
+            <a class="ship-option" href="https://buy.stripe.com/7sY8wO7qAdAO0ZD1PJ0x204" target="_blank" rel="noopener noreferrer">
+              <span>Rest of World</span><span>Shipping · CA$35</span>
+            </a>
+          </div>
+
+          <div class="shipping-note">Ships from Toronto. Free local delivery for Toronto addresses. Worldwide shipping available.</div>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <div class="gallery-card wide">
+          <img src="assets/grey-matter-vinyl-02.jpg" alt="Grey Matter gatefold opened">
+        </div>
+        <div class="gallery-card artwork">
+          <img src="assets/grey-matter-vinyl-03.jpg" alt="Grey Matter sleeve artwork">
+        </div>
+      </div>
+
+      <div class="shipping-block">
+        <div class="small-card">
+          <div class="small-label">Shipping</div>
+          <div class="small-value">Ships from Toronto within 2–4 business days</div>
+        </div>
+        <div class="small-card">
+          <div class="small-label">Digital album</div>
+          <div class="small-value">Included with every vinyl purchase</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© 2ND SON</footer>
+
+  <script>
+    (() => {
+      const buyToggle = document.getElementById('buyToggle');
+      const shipChooser = document.getElementById('shipChooser');
+
+      const setOpen = (open) => {
+        if (open) {
+          shipChooser.removeAttribute('hidden');
+          buyToggle.setAttribute('aria-expanded','true');
+        } else {
+          shipChooser.setAttribute('hidden','');
+          buyToggle.setAttribute('aria-expanded','false');
+        }
+      };
+
+      buyToggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        setOpen(shipChooser.hasAttribute('hidden'));
+      });
+
+      shipChooser.addEventListener('click', (event) => event.stopPropagation());
+      document.addEventListener('click', () => setOpen(false));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setOpen(false);
+      });
+    })();
+  </script>
+</body>
+</html>
