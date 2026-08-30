@@ -293,8 +293,160 @@
       text-transform: uppercase;
     }
 
+
+    /* CURRENT RELEASE */
+    .release-feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr);
+      gap: 26px;
+      margin-bottom: 36px;
+      align-items: stretch;
+    }
+
+    .release-art {
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      background: #080808;
+      box-shadow: 0 24px 55px rgba(0,0,0,.35);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .release-art:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 30px 70px rgba(0,0,0,.46);
+      border-color: #36312c;
+    }
+
+    .release-art img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .release-copy {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: clamp(26px, 4vw, 44px);
+      background:
+        radial-gradient(circle at 50% 18%, rgba(255,255,255,.035), transparent 34%),
+        linear-gradient(180deg, #0f0f0f, #090909);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 20px 45px rgba(0,0,0,.28);
+    }
+
+    .release-title {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: .98;
+      margin: 0 0 16px;
+      letter-spacing: .01em;
+      color: var(--accent);
+      max-width: 9ch;
+    }
+
+    .release-artists {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+      text-transform: uppercase;
+      letter-spacing: .17em;
+      margin-bottom: 30px;
+      max-width: 34em;
+    }
+
+    .player-shell {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr);
+      gap: 15px;
+      align-items: center;
+      padding: 15px 16px;
+      border: 1px solid #302b27;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #13110f, #0c0b0a);
+      max-width: 500px;
+    }
+
+    .play-toggle {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid #48413a;
+      background: #171411;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font: inherit;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .play-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #6b6157;
+      background: #1e1a17;
+    }
+
+    .play-toggle:focus-visible,
+    .progress:focus-visible,
+    .listen-everywhere:focus-visible {
+      outline: 2px solid rgba(237,233,223,.75);
+      outline-offset: 3px;
+    }
+
+    .play-glyph {
+      font-size: 15px;
+      line-height: 1;
+      transform: translateX(1px);
+    }
+
+    .player-track {
+      min-width: 0;
+    }
+
+    .progress {
+      width: 100%;
+      height: 18px;
+      margin: 0;
+      cursor: pointer;
+      accent-color: #d8d1c5;
+      background: transparent;
+    }
+
+    .time-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1px;
+      color: #81796f;
+      font-size: 10px;
+      letter-spacing: .08em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .listen-everywhere {
+      width: fit-content;
+      margin-top: 18px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 10px;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 3px;
+      transition: color .2s ease, border-color .2s ease;
+    }
+
+    .listen-everywhere:hover {
+      color: var(--accent);
+      border-color: #4b453f;
+    }
+
     @media (max-width: 1080px) {
-      .feature {
+      .feature,
+      .release-feature {
         grid-template-columns: 1fr;
       }
       .grid {
@@ -310,7 +462,10 @@
       .grid { grid-template-columns: 1fr; }
       .hero { padding-top: 34px; }
       .nav-inner { font-size: 11px; letter-spacing: .14em; }
-      .feature-copy { padding: 22px; }
+      .feature-copy,
+      .release-copy { padding: 22px; }
+      .release-title { max-width: none; }
+      .player-shell { grid-template-columns: 44px minmax(0, 1fr); gap: 12px; }
     }
   </style>
 </head>
@@ -355,19 +510,48 @@
         <h2>Selected Works</h2>
       </div>
 
-      <div class="feature">
-        <a class="feature-art" href="https://fanlink.tv/Best_Life" target="_blank" rel="noopener noreferrer">
-          <img src="assets/best-life.jpg" alt="Best Life cover art">
+      <div class="release-feature">
+        <a class="release-art" href="https://fanlink.tv/theweightoflight" target="_blank" rel="noopener noreferrer"
+           aria-label="Listen to The Weight of Light everywhere">
+          <img src="assets/the-weight-of-light.jpg" alt="The Weight of Light cover art">
         </a>
-        <div class="feature-copy">
-          <div class="eyebrow">Featured Release</div>
-          <h3 class="feature-title">Best Life</h3>
-          <div class="feature-context">2ND SON</div>
-          <a class="cta" href="https://fanlink.tv/Best_Life" target="_blank" rel="noopener noreferrer">Stream</a>
+
+        <div class="release-copy">
+          <div class="eyebrow">Out Now</div>
+          <h3 class="release-title">The Weight of Light</h3>
+          <div class="release-artists">2ND SON · Anzola · Peroff · McGhee</div>
+
+          <div class="player-shell" id="release-player">
+            <button class="play-toggle" id="play-toggle" type="button"
+                    aria-label="Play The Weight of Light" aria-pressed="false">
+              <span class="play-glyph" id="play-glyph" aria-hidden="true">▶</span>
+            </button>
+
+            <div class="player-track">
+              <input class="progress" id="progress" type="range"
+                     min="0" max="1000" value="0"
+                     aria-label="Track position">
+              <div class="time-row">
+                <span id="elapsed">0:00</span>
+                <span id="duration">0:00</span>
+              </div>
+            </div>
+
+            <audio id="release-audio" preload="metadata">
+              <source src="assets/audio/the-weight-of-light.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+
+          <a class="listen-everywhere"
+             href="https://fanlink.tv/theweightoflight"
+             target="_blank"
+             rel="noopener noreferrer">
+            Listen everywhere ↗
+          </a>
         </div>
       </div>
 
-      <div class="grid">
+<div class="grid">
         
     <a class="card" href="https://fanlink.tv/d5Pw" target="_blank" rel="noopener noreferrer">
       <div class="art-wrap">
@@ -532,5 +716,98 @@
   </main>
 
   <footer class="footer">© 2ND SON</footer>
+
+  <script>
+    (() => {
+      const audio = document.getElementById('release-audio');
+      const player = document.getElementById('release-player');
+      const playToggle = document.getElementById('play-toggle');
+      const playGlyph = document.getElementById('play-glyph');
+      const progress = document.getElementById('progress');
+      const elapsed = document.getElementById('elapsed');
+      const duration = document.getElementById('duration');
+
+      const formatTime = (seconds) => {
+        if (!Number.isFinite(seconds) || seconds < 0) return '0:00';
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+        return `${mins}:${secs}`;
+      };
+
+      const syncButton = () => {
+        const playing = !audio.paused && !audio.ended;
+        playGlyph.textContent = playing ? 'Ⅱ' : '▶';
+        playGlyph.style.transform = playing ? 'none' : 'translateX(1px)';
+        playToggle.setAttribute('aria-pressed', String(playing));
+        playToggle.setAttribute(
+          'aria-label',
+          playing ? 'Pause The Weight of Light' : 'Play The Weight of Light'
+        );
+      };
+
+      const stopAndReset = () => {
+        audio.pause();
+        try { audio.currentTime = 0; } catch (_) {}
+        progress.value = 0;
+        elapsed.textContent = '0:00';
+        syncButton();
+      };
+
+      // Playback begins only after a deliberate press of Play.
+      playToggle.addEventListener('click', async (event) => {
+        event.stopPropagation();
+
+        if (audio.paused) {
+          try {
+            await audio.play();
+          } catch (_) {
+            stopAndReset();
+          }
+        } else {
+          audio.pause();
+        }
+
+        syncButton();
+      });
+
+      progress.addEventListener('input', () => {
+        if (!Number.isFinite(audio.duration) || audio.duration <= 0) return;
+        audio.currentTime = (Number(progress.value) / 1000) * audio.duration;
+      });
+
+      audio.addEventListener('loadedmetadata', () => {
+        duration.textContent = formatTime(audio.duration);
+      });
+
+      audio.addEventListener('timeupdate', () => {
+        if (Number.isFinite(audio.duration) && audio.duration > 0) {
+          progress.value = Math.round((audio.currentTime / audio.duration) * 1000);
+        }
+        elapsed.textContent = formatTime(audio.currentTime);
+      });
+
+      audio.addEventListener('play', syncButton);
+      audio.addEventListener('pause', syncButton);
+      audio.addEventListener('ended', stopAndReset);
+
+      // Any click/tap outside the player means immediate silence and reset.
+      document.addEventListener('pointerdown', (event) => {
+        if (!player.contains(event.target)) stopAndReset();
+      }, true);
+
+      // Navigation always silences the player first.
+      document.addEventListener('click', (event) => {
+        if (event.target.closest('a')) stopAndReset();
+      }, true);
+
+      // Switching tab/window/app, minimizing, or leaving the page also resets.
+      window.addEventListener('blur', stopAndReset);
+      window.addEventListener('pagehide', stopAndReset);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopAndReset();
+      });
+    })();
+  </script>
+
 </body>
 </html>
