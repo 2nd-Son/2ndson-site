@@ -1,0 +1,12 @@
+UPLOAD YOUR MP3 FILES DIRECTLY TO THIS FOLDER USING THESE EXACT FILENAMES:
+
+01-agents-in-hiatus.mp3
+02-vermillion.mp3
+03-silhouettes.mp3
+04-lessons-in-kindness.mp3
+05-easy-company.mp3
+06-la-movida.mp3
+07-the-weight-of-light.mp3
+
+The page is already wired to these filenames.
+You can deploy the page before uploading audio; the layout will still display normally.
