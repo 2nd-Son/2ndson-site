@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>The Weight of Light — Private Listening Room</title>
+<style>
+:root {
+  --bg:#090909;
+  --panel:#0f0f0d;
+  --panel2:#131311;
+  --text:#f2efe6;
+  --muted:#94978f;
+  --soft:#73756f;
+  --warm:#d8d0ad;
+  --green:#61785d;
+  --line:#252521;
+  --max:1060px;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.04), transparent 25%),
+    linear-gradient(180deg,#0b0b0b,#070707 72%);
+}
+.room {
+  max-width:var(--max);
+  margin:0 auto;
+  padding:40px 22px 72px;
+}
+.topline {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:16px;
+  margin-bottom:28px;
+}
+.private-label {
+  color:var(--warm);
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  font-size:10px;
+}
+.brand {
+  color:#747771;
+  text-transform:uppercase;
+  letter-spacing:.20em;
+  font-size:10px;
+}
+.grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+.card {
+  border:1px solid var(--line);
+  border-radius:20px;
+  overflow:hidden;
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+  box-shadow:0 20px 50px rgba(0,0,0,.34);
+}
+.square {
+  aspect-ratio:1 / 1;
+}
+.cover img {
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+.player-card {
+  padding:18px 18px 14px;
+  background:linear-gradient(180deg,#3d3932,#2f2c27);
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+}
+.player-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:14px;
+  margin-bottom:14px;
+  padding-bottom:12px;
+  border-bottom:1px solid #21211e;
+}
+.player-head h1 {
+  margin:0;
+  font-size:17px;
+  line-height:1.1;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--warm);
+}
+.player-head .meta {
+  text-align:right;
+  color:var(--soft);
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  line-height:1.45;
+}
+.tracklist {
+  min-height:0;
+  overflow:auto;
+  padding-right:2px;
+}
+.tracklist::-webkit-scrollbar { width:8px; }
+.tracklist::-webkit-scrollbar-thumb { background:#23231f; border-radius:999px; }
+.track {
+  display:grid;
+  grid-template-columns:52px minmax(0,1fr) 78px;
+  gap:10px;
+  align-items:center;
+  padding:9px 0;
+  border-bottom:1px solid #20201d;
+}
+.track:last-child { border-bottom:0; }
+.track.active { background:rgba(255,255,255,.02); }
+.track-play {
+  border:0;
+  background:transparent;
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:0;
+  cursor:pointer;
+  font:inherit;
+}
+.track-num {
+  color:#666962;
+  font-size:10px;
+  letter-spacing:.12em;
+  min-width:18px;
+}
+.playmark {
+  width:22px;
+  height:22px;
+  border:1px solid #434038;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:8px;
+  color:var(--warm);
+}
+.track-title {
+  text-transform:uppercase;
+  font-weight:800;
+  letter-spacing:.05em;
+  font-size:13px;
+  color:#e2dcc4;
+  margin-bottom:3px;
+}
+.track-progress {
+  width:100%;
+  height:7px;
+  margin:0;
+  cursor:pointer;
+  accent-color:#798d72;
+  background:transparent;
+}
+.track-time {
+  text-align:right;
+  color:#666962;
+  font-size:10px;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.sep { color:#4c4d48; }
+.epk {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  background:#0c0c0b;
+}
+.epk img {
+  width:100%;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+  display:block;
+  object-fit:cover;
+}
+.credits {
+  padding:26px 26px 24px;
+  background:linear-gradient(180deg,#3d3932,#2f2c27);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.credits h2 {
+  margin:0 0 18px;
+  color:var(--warm);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:11px;
+}
+.credit-list {
+  display:grid;
+  gap:14px;
+}
+.credit-item {
+  display:grid;
+  gap:4px;
+}
+.credit-name {
+  color:#f0ece2;
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+}
+.credit-role {
+  color:#beb8a8;
+  font-size:13px;
+  line-height:1.5;
+}
+.production-note {
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid #21211e;
+  color:#d8d0ad;
+  font-size:12px;
+  line-height:1.5;
+  letter-spacing:.04em;
+}
+.release {
+  margin-top:16px;
+  color:#9ca39c;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:11px;
+  line-height:1.55;
+}
+.bottom-note {
+  margin-top:24px;
+  color:#6d6b65;
+  text-align:center;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+}
+@media (max-width: 860px) {
+  .grid { grid-template-columns:1fr; }
+  .cover { order:1; }
+  .player-card { order:2; }
+  .epk { order:3; }
+  .credits { order:4; }
+  .player-card, .credits { aspect-ratio:auto; }
+  .player-card { min-height:0; }
+}
+@media (max-width: 620px) {
+  .room { padding:24px 14px 46px; }
+  .grid { gap:14px; }
+  .topline { align-items:flex-start; flex-direction:column; }
+  .player-head { flex-direction:column; align-items:flex-start; }
+  .player-head .meta { text-align:left; }
+  .track {
+    grid-template-columns:48px minmax(0,1fr);
+    gap:10px;
+  }
+  .track-time {
+    grid-column:2;
+    text-align:left;
+    margin-top:-2px;
+  }
+  .credits { padding:24px 20px; }
+  .player-card { padding:17px 16px 14px; }
+  .track { padding:10px 0; }
+  .track-play { min-width:44px; min-height:38px; }
+  .playmark { width:24px; height:24px; }
+}
+</style>
+</head>
+<body>
+<main class="room">
+  <div class="topline">
+    <div class="private-label">Private Listening Room</div>
+    <div class="brand">2ND SON</div>
+  </div>
+
+  <section class="grid">
+    <div class="card square cover">
+      <img src="album-cover.jpg" alt="The Weight of Light album cover">
+    </div>
+
+    <div class="card square epk">
+      <img src="artist-mosaic.jpg" alt="The Weight of Light artists">
+    </div>
+
+    <div class="card square player-card">
+      <div class="player-head">
+        <h1>The Weight of Light</h1>
+        <div class="meta">
+          7 tracks<br>
+          Advance stream
+        </div>
+      </div>
+
+      <div class="tracklist">
+        
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play Agents in Hiatus">
+          <span class="track-num">01</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">Agents in Hiatus</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="Agents in Hiatus position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>5:00</span></div>
+        <audio preload="metadata">
+          <source src="audio/01-agents-in-hiatus.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play Vermillion">
+          <span class="track-num">02</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">Vermillion</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="Vermillion position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>4:17</span></div>
+        <audio preload="metadata">
+          <source src="audio/02-vermillion.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play Silhouettes">
+          <span class="track-num">03</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">Silhouettes</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="Silhouettes position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>1:11</span></div>
+        <audio preload="metadata">
+          <source src="audio/03-silhouettes.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play Lessons in Kindness">
+          <span class="track-num">04</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">Lessons in Kindness</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="Lessons in Kindness position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>3:26</span></div>
+        <audio preload="metadata">
+          <source src="audio/04-lessons-in-kindness.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play Easy Company">
+          <span class="track-num">05</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">Easy Company</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="Easy Company position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>4:06</span></div>
+        <audio preload="metadata">
+          <source src="audio/05-easy-company.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play La Movida">
+          <span class="track-num">06</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">La Movida</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="La Movida position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>4:05</span></div>
+        <audio preload="metadata">
+          <source src="audio/06-la-movida.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play The Weight of Light">
+          <span class="track-num">07</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">The Weight of Light</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="The Weight of Light position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>5:39</span></div>
+        <audio preload="metadata">
+          <source src="audio/07-the-weight-of-light.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      </div>
+    </div>
+
+    <div class="card square credits">
+      <h2>Credits</h2>
+
+      <div class="credit-list">
+        <div class="credit-item">
+          <div class="credit-name">2nd Son</div>
+          <div class="credit-role">bass, guitars, congas, percussion, background vocals, synthesizer</div>
+        </div>
+
+        <div class="credit-item">
+          <div class="credit-name">Anzola</div>
+          <div class="credit-role">piano, electric piano, keyboards, synthesizers</div>
+        </div>
+
+        <div class="credit-item">
+          <div class="credit-name">Justin Peroff</div>
+          <div class="credit-role">drums</div>
+        </div>
+
+        <div class="credit-item">
+          <div class="credit-name">Aubrey McGhee</div>
+          <div class="credit-role">tenor saxophone</div>
+        </div>
+      </div>
+
+      <div class="production-note">Produced, mixed and mastered by 2nd Son</div>
+
+      <div class="release">Full album · November 13, 2026</div>
+    </div>
+  </section>
+
+  <div class="bottom-note">Private advance listening · please do not share publicly</div>
+</main>
+
+<script>
+(() => {
+  const tracks=[...document.querySelectorAll('.track')];
+  const fmt=s=>{if(!Number.isFinite(s)||s<0)return'0:00';const m=Math.floor(s/60);const sec=Math.floor(s%60).toString().padStart(2,'0');return `${m}:${sec}`};
+  const stopAll=(except=null)=>tracks.forEach(track=>{
+    const audio=track.querySelector('audio');
+    const mark=track.querySelector('.playmark');
+    if(track!==except){
+      audio.pause();
+      try{audio.currentTime=0}catch(_ ){}
+      track.querySelector('.track-progress').value=0;
+      track.querySelector('.elapsed').textContent='0:00';
+      track.classList.remove('active');
+      mark.textContent='▶';
+    }
+  });
+  tracks.forEach(track=>{
+    const audio=track.querySelector('audio'),
+          button=track.querySelector('.track-play'),
+          mark=track.querySelector('.playmark'),
+          progress=track.querySelector('.track-progress'),
+          elapsed=track.querySelector('.elapsed');
+    button.addEventListener('click', async e=>{
+      e.stopPropagation();
+      if(audio.paused){
+        stopAll(track);
+        try{
+          await audio.play();
+          track.classList.add('active');
+          mark.textContent='Ⅱ';
+        }catch(_){
+          mark.textContent='▶';
+        }
+      }else{
+        audio.pause();
+        mark.textContent='▶';
+      }
+    });
+    progress.addEventListener('input', e=>{
+      e.stopPropagation();
+      if(!Number.isFinite(audio.duration)||audio.duration<=0)return;
+      audio.currentTime=(Number(progress.value)/1000)*audio.duration;
+    });
+    audio.addEventListener('timeupdate', ()=>{
+      if(Number.isFinite(audio.duration)&&audio.duration>0){
+        progress.value=Math.round((audio.currentTime/audio.duration)*1000);
+      }
+      elapsed.textContent=fmt(audio.currentTime);
+    });
+    audio.addEventListener('ended', ()=>{
+      progress.value=0;
+      elapsed.textContent='0:00';
+      track.classList.remove('active');
+      mark.textContent='▶';
+    });
+  });
+  const hardStop=()=>stopAll(null);
+  window.addEventListener('blur', hardStop);
+  window.addEventListener('pagehide', hardStop);
+  document.addEventListener('visibilitychange', ()=>{ if(document.hidden) hardStop(); });
+})();
+</script>
+</body>
+</html>
