@@ -1,1 +1,197 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>The Weight of Light — Private Listening Room</title>
+<style>
+:root{--bg:#0a0a0a;--text:#f3f0e7;--muted:#a6aaa9;--warm:#d8d0ad;--green:#61785d;--line:#272724;--max:1180px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.04),transparent 26%),linear-gradient(180deg,#0b0b0b,#070707 70%)}
+.room{max-width:var(--max);margin:0 auto;padding:46px 24px 80px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:30px}
+.private-label{color:var(--warm);text-transform:uppercase;letter-spacing:.22em;font-size:10px}
+.brand{color:#777a79;text-transform:uppercase;letter-spacing:.20em;font-size:10px}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:28px;align-items:stretch}
+.cover,.intro{border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,.42)}
+.cover img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+.intro{padding:clamp(26px,4vw,44px);display:flex;flex-direction:column;justify-content:center;background:radial-gradient(circle at 50% 12%,rgba(255,255,255,.03),transparent 34%),linear-gradient(180deg,#11110f,#0b0b0a)}
+.kicker{color:var(--warm);text-transform:uppercase;letter-spacing:.20em;font-size:10px;margin-bottom:16px}
+.title-stack{text-transform:uppercase;font-weight:900;letter-spacing:-.035em;line-height:.84;margin:0 0 24px;max-width:9ch}
+.title-stack .the,.title-stack .of{color:#d7cfaa;font-size:clamp(28px,4vw,46px);display:block;letter-spacing:.01em}
+.title-stack .weight{color:var(--green);font-size:clamp(50px,7vw,90px);display:block}
+.title-stack .light{color:#f0ede4;font-size:clamp(54px,7.6vw,98px);display:block}
+.artists{color:#a8b1b3;text-transform:uppercase;letter-spacing:.12em;font-size:12px;line-height:1.7;margin-bottom:24px}
+.release-note{color:#817e75;font-size:11px;line-height:1.7;text-transform:uppercase;letter-spacing:.10em}
+.player-section{margin-top:32px;border-top:1px solid var(--line);padding-top:28px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:18px}
+.section-head h2{margin:0;text-transform:uppercase;letter-spacing:.10em;font-size:18px}
+.section-head span{color:#77756f;font-size:10px;text-transform:uppercase;letter-spacing:.15em}
+.tracklist{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:linear-gradient(180deg,#10100f,#0b0b0a)}
+.track{display:grid;grid-template-columns:64px minmax(0,1fr) 96px;gap:12px;align-items:center;padding:14px 18px;border-bottom:1px solid #242420}
+.track:last-child{border-bottom:0}
+.track.active{background:#141411}
+.track-play{border:0;background:transparent;color:var(--text);display:flex;align-items:center;gap:10px;padding:0;cursor:pointer;font:inherit}
+.track-num{color:#77766f;font-size:10px;letter-spacing:.10em;min-width:20px}
+.playmark{width:28px;height:28px;border:1px solid #48443c;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:var(--warm)}
+.track-title{text-transform:uppercase;font-weight:800;letter-spacing:.04em;font-size:14px;color:#ded8bb;margin-bottom:5px}
+.track-progress{width:100%;height:10px;margin:0;cursor:pointer;accent-color:#798d72;background:transparent}
+.track-time{text-align:right;color:#74736d;font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sep{color:#4e4e4a}
+.visuals{margin-top:32px;display:grid;grid-template-columns:.72fr 1.28fr;gap:22px}
+.visual-card{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#0c0c0b}
+.visual-card img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top}
+.bottom-note{margin-top:24px;color:#6f6d67;text-align:center;font-size:10px;text-transform:uppercase;letter-spacing:.13em}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.visuals{grid-template-columns:1fr}}
+@media(max-width:620px){.room{padding:28px 16px 60px}.topline{align-items:flex-start;flex-direction:column}.track{grid-template-columns:54px minmax(0,1fr)}.track-time{grid-column:2;text-align:left;margin-top:-6px}}
+</style>
+</head>
+<body>
+<main class="room">
+  <div class="topline"><div class="private-label">Private Listening Room</div><div class="brand">2ND SON</div></div>
+  <section class="hero">
+    <div class="cover"><img src="album-cover.jpg" alt="The Weight of Light album artwork"></div>
+    <div class="intro">
+      <div class="kicker">Advance Listening</div>
+      <h1 class="title-stack"><span class="the">The</span><span class="weight">Weight</span><span class="of">of</span><span class="light">Light</span></h1>
+      <div class="artists">2ND SON · ANZOLA · PEROFF · McGHEE</div>
+      <div class="release-note">Private advance stream<br>Please do not share this page publicly</div>
+    </div>
+  </section>
+  <section class="player-section">
+    <div class="section-head"><h2>Album Stream</h2><span>7 tracks · 27:44</span></div>
+    <div class="tracklist">
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play Agents in Hiatus">
+          <span class="track-num">01</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">Agents in Hiatus</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="Agents in Hiatus position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>5:00</span></div>
+        <audio preload="metadata">
+          <source src="audio/01-agents-in-hiatus.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play Vermillion">
+          <span class="track-num">02</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">Vermillion</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="Vermillion position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>4:17</span></div>
+        <audio preload="metadata">
+          <source src="audio/02-vermillion.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play Silhouettes">
+          <span class="track-num">03</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">Silhouettes</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="Silhouettes position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>1:11</span></div>
+        <audio preload="metadata">
+          <source src="audio/03-silhouettes.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play Lessons in Kindness">
+          <span class="track-num">04</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">Lessons in Kindness</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="Lessons in Kindness position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>3:26</span></div>
+        <audio preload="metadata">
+          <source src="audio/04-lessons-in-kindness.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play Easy Company">
+          <span class="track-num">05</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">Easy Company</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="Easy Company position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>4:06</span></div>
+        <audio preload="metadata">
+          <source src="audio/05-easy-company.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play La Movida">
+          <span class="track-num">06</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">La Movida</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="La Movida position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>4:05</span></div>
+        <audio preload="metadata">
+          <source src="audio/06-la-movida.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      <div class="track">
+        <button class="track-play" type="button" aria-label="Play The Weight of Light">
+          <span class="track-num">07</span>
+          <span class="playmark">▶</span>
+        </button>
+        <div class="track-main">
+          <div class="track-title">The Weight of Light</div>
+          <input class="track-progress" type="range" min="0" max="1000" value="0" aria-label="The Weight of Light position">
+        </div>
+        <div class="track-time"><span class="elapsed">0:00</span><span class="sep"> / </span><span>5:39</span></div>
+        <audio preload="metadata">
+          <source src="audio/07-the-weight-of-light.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </section>
+  <section class="visuals">
+    <div class="visual-card"><img src="typography.png" alt="The Weight of Light typography and track listing"></div>
+    <div class="visual-card"><img src="epk.png" alt="The Weight of Light artist portraits"></div>
+  </section>
+  <div class="bottom-note">Private advance listening · 2ndson.com</div>
+</main>
+<script>
+(() => {
+  const tracks=[...document.querySelectorAll('.track')];
+  const fmt=s=>{if(!Number.isFinite(s)||s<0)return'0:00';const m=Math.floor(s/60);const sec=Math.floor(s%60).toString().padStart(2,'0');return `${m}:${sec}`};
+  const stopAll=(except=null)=>tracks.forEach(track=>{const audio=track.querySelector('audio');const mark=track.querySelector('.playmark');if(track!==except){audio.pause();try{audio.currentTime=0}catch(_ ){}track.querySelector('.track-progress').value=0;track.querySelector('.elapsed').textContent='0:00';track.classList.remove('active');mark.textContent='▶'}});
+  tracks.forEach(track=>{
+    const audio=track.querySelector('audio'),button=track.querySelector('.track-play'),mark=track.querySelector('.playmark'),progress=track.querySelector('.track-progress'),elapsed=track.querySelector('.elapsed');
+    button.addEventListener('click',async e=>{e.stopPropagation();if(audio.paused){stopAll(track);try{await audio.play();track.classList.add('active');mark.textContent='Ⅱ'}catch(_){mark.textContent='▶'}}else{audio.pause();mark.textContent='▶'}});
+    progress.addEventListener('input',e=>{e.stopPropagation();if(!Number.isFinite(audio.duration)||audio.duration<=0)return;audio.currentTime=(Number(progress.value)/1000)*audio.duration});
+    audio.addEventListener('timeupdate',()=>{if(Number.isFinite(audio.duration)&&audio.duration>0)progress.value=Math.round((audio.currentTime/audio.duration)*1000);elapsed.textContent=fmt(audio.currentTime)});
+    audio.addEventListener('ended',()=>{progress.value=0;elapsed.textContent='0:00';track.classList.remove('active');mark.textContent='▶'});
+  });
+  const hardStop=()=>stopAll(null);
+  window.addEventListener('blur',hardStop);
+  window.addEventListener('pagehide',hardStop);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)hardStop()});
+})();
+</script>
+</body>
+</html>
