@@ -2,252 +2,253 @@
   --text:#f4f1e8;
   --warm:#d8cfad;
   --line:rgba(255,255,255,.11);
-  --fanlink-scale:1;
 }
 *{box-sizing:border-box}
-html,body{width:100%;height:100%;min-height:100%;margin:0;overflow:hidden}
+html,body{min-height:100%}
 body{
-  position:relative;
+  margin:0;
   font-family:Arial,Helvetica,sans-serif;
   color:var(--text);
   background:
-    radial-gradient(circle at 15% 8%,rgba(216,207,173,.13),transparent 27%),
-    radial-gradient(circle at 86% 91%,rgba(117,131,110,.08),transparent 31%),
-    linear-gradient(145deg,#15130f 0%,#0b0b0a 43%,#050505 100%);
+    radial-gradient(circle at 15% 8%, rgba(216,207,173,.12), transparent 26%),
+    radial-gradient(circle at 87% 92%, rgba(117,131,110,.10), transparent 30%),
+    linear-gradient(145deg,#15130f 0%,#0c0c0b 42%,#060606 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:38px 24px;
 }
-
-.shell{
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%) scale(var(--fanlink-scale));
-  transform-origin:center center;
-}
+.shell{width:min(92vw,1440px)}
+.back-nav{margin:0 2px 10px}
 .back-nav a{
   color:#8a867d;
   text-decoration:none;
+  font-size:11px;
   text-transform:uppercase;
   letter-spacing:.18em;
 }
 .back-nav a:hover{color:#d8cfad}
 .topline{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  margin:0 2px 15px;
   color:#807c74;
+  font-size:11px;
   text-transform:uppercase;
   letter-spacing:.2em;
 }
 .topline .listen{color:var(--warm)}
 .card{
   border:1px solid var(--line);
+  border-radius:24px;
   overflow:hidden;
   background:
     radial-gradient(circle at 18% 8%,rgba(255,244,219,.05),transparent 34%),
     linear-gradient(145deg,#24211c 0%,#171614 54%,#111110 100%);
+  box-shadow:0 35px 90px rgba(0,0,0,.46);
+  padding:38px;
+}
+.desktop-grid{
+  display:grid;
+  grid-template-columns:minmax(520px, 0.94fr) minmax(0,1fr);
+  gap:44px;
+  align-items:start;
 }
 .cover{
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 22px 48px rgba(0,0,0,.34);
+  width:100%;
+  aspect-ratio:1/1;
   overflow:hidden;
   border-radius:0;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 20px 44px rgba(0,0,0,.34);
 }
-.cover img{width:100%;height:100%;object-fit:cover;display:block}
-.copy{padding:0}
+.cover img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.copy{padding-top:2px}
 h1{
   margin:0;
   color:#f5f1e4;
   text-transform:uppercase;
   letter-spacing:.055em;
+  font-size:42px;
   line-height:1.02;
 }
-.artists{color:#bbb5a6;line-height:1.45;letter-spacing:.025em}
-.release{color:#8d887f;text-transform:uppercase;letter-spacing:.13em}
+.artists{
+  margin-top:10px;
+  color:#bbb5a6;
+  font-size:15px;
+  line-height:1.45;
+  letter-spacing:.025em;
+  white-space:nowrap;
+}
+.release{
+  margin-top:14px;
+  color:#87837a;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+}
+.links{
+  display:grid;
+  gap:12px;
+  margin-top:30px;
+}
 .service{
   width:100%;
-  border:1px solid rgba(255,255,255,.14);
+  min-height:62px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:14px;
   background:rgba(255,255,255,.035);
   color:var(--text);
   display:flex;
   align-items:center;
   justify-content:space-between;
+  padding:0 20px 0 21px;
   text-decoration:none;
   transition:.18s ease;
 }
-.service:hover{background:rgba(255,255,255,.075);border-color:rgba(255,255,255,.23)}
-
-/* Supplied streamer artwork replaces the visible plain-text service names.
-   The original names remain in the HTML, so the links still have readable text. */
-.service-name{
-  display:block;
-  flex:0 0 auto;
-  font-size:0;
-  color:transparent;
-  background-repeat:no-repeat;
-  background-position:left center;
+.service:hover{
+  background:rgba(255,255,255,.075);
+  border-color:rgba(255,255,255,.23);
+  transform:translateY(-1px);
 }
-.dot{display:none}
-.service[href*="spotify.com"] .service-name{background-image:url('/listen/logos/spotify.png')}
-.service[href*="music.apple.com"] .service-name{background-image:url('/listen/logos/apple-music.png')}
-.service[href*="music.youtube.com"] .service-name{background-image:url('/listen/logos/youtube-music.png')}
-.service[href*="bandcamp.com"] .service-name{background-image:url('/listen/logos/bandcamp.png')}
-.service[href*="tidal.com"] .service-name{background-image:url('/listen/logos/tidal.png')}
-.service[href*="music.amazon.com"] .service-name{background-image:url('/listen/logos/amazon-music.png')}
-.arrow{
+.service-name{
   display:flex;
   align-items:center;
-  color:#c7c1b6;
-  font-size:0;
+  gap:14px;
+  font-size:15px;
   font-weight:700;
-  white-space:nowrap;
+  letter-spacing:.04em;
 }
-.arrow::before{content:'LISTEN'}
-.arrow::after{content:'▶';color:var(--warm)}
-
-/* ================================================================
-   DESKTOP — approved fixed composition
-   Whole composition scales uniformly; internals never reflow.
-   ================================================================ */
-@media(min-width:761px){
-  .shell{width:1476px;margin:0}
-  .back-nav{margin:0 4px 12px}
-  .back-nav a{font-size:12px}
-  .topline{margin:0 4px 17px;font-size:12px}
-  .card{
-    width:1476px;
-    padding:44px;
-    border-radius:28px;
-    box-shadow:0 38px 95px rgba(0,0,0,.48);
-  }
-  .desktop-grid{
-    display:grid;
-    grid-template-columns:682px 650px;
-    gap:56px;
-    align-items:start;
-  }
-
-  /* Visible title pixels and artwork top align. Artwork bottom and Amazon
-     pill bottom align at exactly the same horizontal line. */
-  .cover{
-    width:682px;
-    height:682px;
-    aspect-ratio:auto;
-    margin-top:8px;
-  }
-  .copy{
-    width:650px;
-    height:690px;
-    min-height:690px;
-    display:flex;
-    flex-direction:column;
-  }
-  h1{flex:0 0 auto;font-size:52px}
-  .artists{flex:0 0 auto;margin-top:13px;font-size:16px;white-space:nowrap}
-  .release{flex:0 0 auto;margin-top:15px;font-size:12px}
-  .links{
-    flex:1 1 auto;
-    min-height:0;
-    margin-top:32px;
-    display:grid;
-    grid-template-rows:repeat(6,minmax(0,1fr));
-    gap:13px;
-  }
-  .service{
-    min-height:0;
-    height:auto;
-    border-radius:16px;
-    padding:0 22px;
-  }
-
-  /* Approved optical logo lane. Tidal is trimmed slightly shorter. */
-  .service-name{width:255px;height:38px}
-  .service[href*="spotify.com"] .service-name{background-size:220px auto}
-  .service[href*="music.apple.com"] .service-name{background-size:155px auto}
-  .service[href*="music.youtube.com"] .service-name{background-size:189px auto}
-  .service[href*="bandcamp.com"] .service-name{background-size:236px auto}
-  .service[href*="tidal.com"] .service-name{background-size:176px auto}
-  .service[href*="music.amazon.com"] .service-name{background-size:166px auto}
-  .arrow{gap:8px;letter-spacing:.14em}
-  .arrow::before{font-size:11px}
-  .arrow::after{font-size:12px}
+.dot{
+  width:10px;height:10px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.22);
+  background:#c9c3b5;opacity:.9;
 }
+.arrow{color:#8d897f;font-size:21px;line-height:1}
 
-/* ================================================================
-   PHONE — approved fixed 390 × 844 composition
-   Whole composition scales uniformly; internals never reflow.
-   ================================================================ */
 @media(max-width:760px){
-  .shell{
-    width:390px;
-    height:844px;
-    padding:14px 12px 12px;
-    margin:0;
+  html,body{
+    width:100%;
+    height:100dvh;
+    min-height:100dvh;
+    overflow:hidden;
   }
-  .back-nav{height:20px;margin:0 2px 6px}
-  .back-nav a{font-size:10px;line-height:20px}
-  .topline{height:18px;margin:0 2px 8px;font-size:9px;letter-spacing:.19em}
+  body{
+    align-items:flex-start;
+    justify-content:flex-start;
+    padding:12px 10px;
+  }
+  .shell{
+    width:min(100%,420px);
+    height:auto;
+    margin:0 auto;
+    padding-bottom:8px;
+  }
+  .back-nav{margin:0 2px 6px}
+  .back-nav a{font-size:8.5px;letter-spacing:.16em}
+  .topline{
+    margin:0 2px 7px;
+    font-size:8.5px;
+    letter-spacing:.17em;
+  }
   .card{
-    height:766px;
-    padding:22px 14px 20px;
-    border-radius:23px;
-    box-shadow:0 28px 70px rgba(0,0,0,.42);
+    height:auto;
+    padding:38px 14px;
+    border-radius:18px;
+    display:flex;
+    align-items:flex-start;
   }
   .desktop-grid{
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    width:100%;
+    height:auto;
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto;
+    gap:10px;
+    align-content:start;
   }
   .cover{
-    width:236px;
-    height:236px;
-    flex:0 0 236px;
-    aspect-ratio:auto;
-    margin:0;
-    box-shadow:0 18px 40px rgba(0,0,0,.34);
+    width:clamp(126px,calc(100dvh - 442px),245px);
+    max-width:245px;
+    margin:0 auto;
+    border-radius:0;
+    flex:none;
   }
   .copy{
-    width:100%;
-    flex:1 1 auto;
-    min-height:0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
     text-align:center;
-  }
-  h1{width:100%;margin:15px 0 0;font-size:24px;letter-spacing:.05em}
-  .artists{
-    width:100%;
-    margin-top:8px;
-    font-size:9px;
-    line-height:1.35;
-    letter-spacing:.018em;
-    white-space:nowrap;
-  }
-  .release{margin-top:7px;font-size:8px;letter-spacing:.12em}
-  .links{
-    width:236px;
-    flex:1 1 auto;
+    padding-top:0;
     min-height:0;
-    margin-top:14px;
-    display:grid;
-    grid-template-rows:repeat(6,1fr);
-    gap:7px;
+  }
+  h1{
+    font-size:clamp(18px,2.65dvh,22px);
+    line-height:1.02;
+  }
+  .artists{
+    margin-top:6px;
+    font-size:clamp(9.8px,1.35dvh,11px);
+    line-height:1.3;
+    white-space:normal;
+  }
+  .release{
+    margin-top:6px;
+    font-size:8.5px;
+    letter-spacing:.10em;
+  }
+  .links{
+    width:clamp(220px,70vw,245px);
+    max-width:245px;
+    margin:10px auto 0;
+    gap:clamp(4px,.75dvh,7px);
   }
   .service{
-    min-height:0;
-    height:auto;
-    border-radius:13px;
-    padding:0 12px;
+    min-height:clamp(32px,5.1dvh,43px);
+    padding:0 12px 0 13px;
+    border-radius:11px;
   }
-  .service-name{width:144px;height:25px}
-  .service[href*="spotify.com"] .service-name{background-size:122px auto}
-  .service[href*="music.apple.com"] .service-name{background-size:91px auto}
-  .service[href*="music.youtube.com"] .service-name{background-size:111px auto}
-  .service[href*="bandcamp.com"] .service-name{background-size:139px auto}
-  .service[href*="tidal.com"] .service-name{background-size:104px auto}
-  .service[href*="music.amazon.com"] .service-name{background-size:98px auto}
-  .arrow{gap:5px;letter-spacing:.12em}
-  .arrow::before{font-size:7px}
-  .arrow::after{font-size:8px}
+  .service-name{
+    gap:9px;
+    font-size:clamp(10.5px,1.45dvh,12px);
+  }
+  .dot{width:7px;height:7px}
+  .arrow{font-size:15px}
+}
+@media(max-width:760px) and (max-height:650px){
+  body{padding-top:6px;padding-bottom:6px}
+  .topline{margin-bottom:5px}
+  .card{height:auto;padding:24px 12px}
+  .desktop-grid{gap:7px}
+  .release{margin-top:4px}
+  .links{margin-top:7px}
+}
+@media(max-width:760px) and (max-height:590px){
+  .topline{font-size:8px;margin-bottom:4px}
+  .card{height:auto;padding:16px 11px}
+  .desktop-grid{gap:5px}
+  .artists{margin-top:4px}
+  .release{margin-top:3px}
+  .links{margin-top:5px;gap:3px}
+  .service{border-radius:9px}
+}
+
+
+@media(min-width:1100px){
+  .shell{width:min(92vw,1440px)}
+  .card{padding:38px}
+  .desktop-grid{
+    grid-template-columns:minmax(520px, 0.94fr) minmax(0,1fr);
+    gap:44px;
+  }
+  .cover{width:100%}
+  .copy{padding-top:4px}
+  h1{font-size:42px}
+  .artists{font-size:15px}
+  .release{font-size:12px}
+  .links{gap:12px;margin-top:30px}
+  .service{min-height:62px}
+  .service-name{font-size:15px}
 }
