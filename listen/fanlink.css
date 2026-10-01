@@ -233,27 +233,54 @@ h1{
     border-radius:13px;
     padding:0 12px;
   }
-  /* Phone-only polish:
-     all six logos keep the same 100px width, with enough height allowance
-     that no brand is silently narrowed by the browser. */
-  .service-name{width:120px;height:30px}
-  .service-logo{
-    width:100px;
-    max-width:100px;
-    max-height:30px;
-  }
-
+  /* Hard phone logo cell: same exact lane and image width for all six. */
+  .service-name{width:120px;height:26px}
+  .service-logo{width:100px;max-width:100px;max-height:24px}
   .arrow{gap:5px;letter-spacing:.12em}
   .arrow::before{font-size:7px}
+  .arrow::after{font-size:8px}
+}
 
-  /* CSS triangle prevents iOS/Safari from rendering the play mark as emoji. */
+
+/* ================================================================
+   PHONE POLISH — 2026-10-01
+   Desktop is intentionally untouched.
+   ================================================================ */
+@media(max-width:760px){
+  /* One hard logo lane: every supplied wordmark is exactly 100px wide.
+     30px is tall enough for Apple/Bandcamp/Spotify at that width, so
+     none of them gets silently narrowed by max-height. */
+  .service-name{
+    width:120px !important;
+    height:30px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+  }
+
+  .service-logo{
+    width:100px !important;
+    max-width:100px !important;
+    height:auto !important;
+    max-height:30px !important;
+    display:block !important;
+    object-fit:contain !important;
+    object-position:left center !important;
+  }
+
+  /* No Unicode play glyph on phone: iOS can render it as emoji.
+     This is a simple CSS triangle like the understated desktop mark. */
   .arrow::after{
-    content:'';
-    width:0;
-    height:0;
-    border-top:3px solid transparent;
-    border-bottom:3px solid transparent;
-    border-left:5px solid var(--warm);
-    font-size:0;
+    content:'' !important;
+    display:block !important;
+    width:0 !important;
+    height:0 !important;
+    flex:0 0 auto !important;
+    border-top:3px solid transparent !important;
+    border-bottom:3px solid transparent !important;
+    border-left:5px solid var(--warm) !important;
+    color:transparent !important;
+    font-size:0 !important;
+    line-height:0 !important;
   }
 }
