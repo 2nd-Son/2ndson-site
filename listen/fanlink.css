@@ -1,0 +1,259 @@
+:root{
+  --text:#f4f1e8;
+  --warm:#d8cfad;
+  --line:rgba(255,255,255,.11);
+  --fanlink-scale:1;
+}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;min-height:100%;margin:0;overflow:hidden}
+body{
+  position:relative;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 15% 8%,rgba(216,207,173,.13),transparent 27%),
+    radial-gradient(circle at 86% 91%,rgba(117,131,110,.08),transparent 31%),
+    linear-gradient(145deg,#15130f 0%,#0b0b0a 43%,#050505 100%);
+}
+
+.shell{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%) scale(var(--fanlink-scale));
+  transform-origin:center center;
+}
+.back-nav a{
+  color:#8a867d;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+}
+.back-nav a:hover{color:#d8cfad}
+.topline{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#807c74;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+}
+.topline .listen{color:var(--warm)}
+.card{
+  border:1px solid var(--line);
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 18% 8%,rgba(255,244,219,.05),transparent 34%),
+    linear-gradient(145deg,#24211c 0%,#171614 54%,#111110 100%);
+}
+.cover{
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 22px 48px rgba(0,0,0,.34);
+  overflow:hidden;
+  border-radius:0;
+}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.copy{padding:0}
+h1{
+  margin:0;
+  color:#f5f1e4;
+  text-transform:uppercase;
+  letter-spacing:.055em;
+  line-height:1.02;
+}
+.artists{color:#bbb5a6;line-height:1.45;letter-spacing:.025em}
+.release{color:#8d887f;text-transform:uppercase;letter-spacing:.13em}
+.service{
+  width:100%;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.035);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  text-decoration:none;
+  transition:.18s ease;
+}
+.service:hover{background:rgba(255,255,255,.075);border-color:rgba(255,255,255,.23)}
+
+/* Streamer wordmarks are real image elements, not CSS-generated text/backgrounds. */
+.service-name{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  flex:0 0 auto;
+}
+.service-logo{
+  display:block;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  object-position:left center;
+}
+.dot{display:none}
+.arrow{
+  display:flex;
+  align-items:center;
+  color:#c7c1b6;
+  font-size:0;
+  font-weight:700;
+  white-space:nowrap;
+}
+.arrow::before{content:'LISTEN'}
+.arrow::after{content:'▶';color:var(--warm)}
+
+/* ================================================================
+   DESKTOP — approved fixed composition
+   Whole composition scales uniformly; internals never reflow.
+   ================================================================ */
+@media(min-width:761px){
+  .shell{width:1476px;margin:0}
+  .back-nav{margin:0 4px 12px}
+  .back-nav a{font-size:12px}
+  .topline{margin:0 4px 17px;font-size:12px}
+  .card{
+    width:1476px;
+    padding:44px;
+    border-radius:28px;
+    box-shadow:0 38px 95px rgba(0,0,0,.48);
+  }
+  .desktop-grid{
+    display:grid;
+    grid-template-columns:682px 650px;
+    gap:56px;
+    align-items:start;
+  }
+
+  /* Visible title pixels and artwork top align. Artwork bottom and Amazon
+     pill bottom align at exactly the same horizontal line. */
+  .cover{
+    width:682px;
+    height:682px;
+    aspect-ratio:auto;
+    margin-top:8px;
+  }
+  .copy{
+    width:650px;
+    height:690px;
+    min-height:690px;
+    display:flex;
+    flex-direction:column;
+  }
+  h1{flex:0 0 auto;font-size:52px}
+  .artists{flex:0 0 auto;margin-top:13px;font-size:16px;white-space:nowrap}
+  .release{flex:0 0 auto;margin-top:15px;font-size:12px}
+  .links{
+    flex:1 1 auto;
+    min-height:0;
+    margin-top:32px;
+    display:grid;
+    grid-template-rows:repeat(6,minmax(0,1fr));
+    gap:13px;
+  }
+  .service{
+    min-height:0;
+    height:auto;
+    border-radius:16px;
+    padding:0 22px;
+  }
+
+  /* Hard desktop logo cell: same exact lane and image width for all six. */
+  .service-name{width:150px;height:42px}
+  .service-logo{width:124px;max-width:124px;max-height:38px}
+  .arrow{gap:8px;letter-spacing:.14em}
+  .arrow::before{font-size:11px}
+  .arrow::after{font-size:12px}
+}
+
+/* ================================================================
+   PHONE — approved fixed 390 × 844 composition
+   Whole composition scales uniformly; internals never reflow.
+   ================================================================ */
+@media(max-width:760px){
+  .shell{
+    width:390px;
+    height:844px;
+    padding:14px 12px 12px;
+    margin:0;
+  }
+  .back-nav{height:20px;margin:0 2px 6px}
+  .back-nav a{font-size:10px;line-height:20px}
+  .topline{height:18px;margin:0 2px 8px;font-size:9px;letter-spacing:.19em}
+  .card{
+    height:766px;
+    padding:22px 14px 20px;
+    border-radius:23px;
+    box-shadow:0 28px 70px rgba(0,0,0,.42);
+  }
+  .desktop-grid{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .cover{
+    width:236px;
+    height:236px;
+    flex:0 0 236px;
+    aspect-ratio:auto;
+    margin:0;
+    box-shadow:0 18px 40px rgba(0,0,0,.34);
+  }
+  .copy{
+    width:100%;
+    flex:1 1 auto;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  h1{width:100%;margin:15px 0 0;font-size:24px;letter-spacing:.05em}
+  .artists{
+    width:100%;
+    margin-top:8px;
+    font-size:9px;
+    line-height:1.35;
+    letter-spacing:.018em;
+    white-space:nowrap;
+  }
+  .release{margin-top:7px;font-size:8px;letter-spacing:.12em}
+  .links{
+    width:236px;
+    flex:1 1 auto;
+    min-height:0;
+    margin-top:14px;
+    display:grid;
+    grid-template-rows:repeat(6,1fr);
+    gap:7px;
+  }
+  .service{
+    min-height:0;
+    height:auto;
+    border-radius:13px;
+    padding:0 12px;
+  }
+  /* Phone-only polish:
+     all six logos keep the same 100px width, with enough height allowance
+     that no brand is silently narrowed by the browser. */
+  .service-name{width:120px;height:30px}
+  .service-logo{
+    width:100px;
+    max-width:100px;
+    max-height:30px;
+  }
+
+  .arrow{gap:5px;letter-spacing:.12em}
+  .arrow::before{font-size:7px}
+
+  /* CSS triangle prevents iOS/Safari from rendering the play mark as emoji. */
+  .arrow::after{
+    content:'';
+    width:0;
+    height:0;
+    border-top:3px solid transparent;
+    border-bottom:3px solid transparent;
+    border-left:5px solid var(--warm);
+    font-size:0;
+  }
+}
